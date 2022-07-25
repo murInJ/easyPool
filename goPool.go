@@ -70,7 +70,7 @@ func (p *goPool) Close() {
 
 func (p *goPool) scheduler() {
 	for {
-		if !p.openState {
+		if !p.openState && p.waitingTask == 0 {
 			return
 		}
 
